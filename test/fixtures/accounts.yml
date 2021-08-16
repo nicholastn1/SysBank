@@ -3,9 +3,9 @@
 one:
   number: MyString
   limit: 9.99
-  agency_id: 1
+  agency: one
 
 two:
   number: MyString
   limit: 9.99
-  agency_id: 1
+  agency: two

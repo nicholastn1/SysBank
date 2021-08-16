@@ -11,4 +11,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# app/assets
+Rails.application.config.assets.precompile += %w( users.js users.css
+                                                  user_devise.js user_devise.css)
+
+# lib/assets
+Rails.application.config.assets.precompile += %w( ie10-viewport-bug-workaround.css dashboard.css
+                                                  ie-emulation-modes-warning.js holder.min.js
+                                                  ie10-viewport-bug-workaround.js)

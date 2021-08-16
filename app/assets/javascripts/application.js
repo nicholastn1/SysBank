@@ -13,4 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery/dist/jquery.min.js
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require holder.min.js
+//= require ie10-viewport-bug-workaround.js
+//= require ie-emulation-modes-warning.js
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl.js
 //= require_tree .

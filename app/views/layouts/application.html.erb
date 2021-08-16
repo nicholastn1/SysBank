@@ -7,9 +7,55 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="vsc-initialized">
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">SysBank</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+            </div>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+              <li><%= link_to 'Accounts', accounts_path %></li>
+              <li><%= link_to 'Agencies', agencies_path %></li>
+              <li><%= link_to 'Transactions', transactions_path %></li>
+            </ul>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <%= yield %>
+
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+
+    <% if notice%>
+      <script>
+        $.bootstrapGrowl('<%= notice %>', {
+          type: 'success', // (null, 'info', 'error', 'success')
+          align: 'right', // ('left', 'right', or 'center')
+          allow_dismiss: true,
+          stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      </script>
+    <% end %>
+
   </body>
 </html>

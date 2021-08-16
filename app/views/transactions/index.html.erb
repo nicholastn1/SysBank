@@ -2,21 +2,22 @@
 
 <h1>Transactions</h1>
 
-<table>
-  <thead>
+</table>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Date</th>
-      <th>Amount</th>
-      <th>Transaction type</th>
-      <th>Account</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Transaction type</th>
+      <th scope="col">Account</th>
+      <th scope="col">User</th>
     </tr>
   </thead>
-
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
+        <td><%= transaction.id %></td>
         <td><%= transaction.date %></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.transaction_type %></td>
@@ -24,7 +25,7 @@
         <td><%= transaction.user_id %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', transaction_path(transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

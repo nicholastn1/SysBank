@@ -1,5 +1,12 @@
 {
   "name": "SysBank",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "bootstrap-growl-ifightcrime": "^1.1.0",
+    "jquery": "3"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
 }
