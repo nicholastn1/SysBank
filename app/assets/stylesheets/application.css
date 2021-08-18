@@ -15,4 +15,6 @@
  *= require bootstrap/dist/css/bootstrap
  *= require ie10-viewport-bug-workaround
  *= require dashboard
+ *= require grid
+ *= require signin
 */

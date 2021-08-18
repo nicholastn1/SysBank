@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @transaction = Transaction.new
+    @transaction = Transaction.new(transaction_type: params[:transaction_type])
   end
 
   # GET /transactions/1/edit

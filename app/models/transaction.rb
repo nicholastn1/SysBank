@@ -2,7 +2,7 @@ class Transaction < ApplicationRecord
   belongs_to :user
   belongs_to :account
 
-  enum transaction_types:{
+  enum transaction_type:{
     deposit: 0,
     withdraw: 1,
     reversal: 2,

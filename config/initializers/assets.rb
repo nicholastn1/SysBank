@@ -19,4 +19,4 @@ Rails.application.config.assets.precompile += %w( users.js users.css
 # lib/assets
 Rails.application.config.assets.precompile += %w( ie10-viewport-bug-workaround.css dashboard.css
                                                   ie-emulation-modes-warning.js holder.min.js
-                                                  ie10-viewport-bug-workaround.js)
+                                                  ie10-viewport-bug-workaround.js signin.css)
