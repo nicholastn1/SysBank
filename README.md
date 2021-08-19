@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application has been created to practice my skills on Ruby On Rails.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version is ruby 2.6.3p62 (2019-04-16 revision 67580).
 
-* System dependencies
+* Rails version is 5.2.6
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+At all, that's what i've been used to get started and proceed my application and studies. Contact me for any doubts.
