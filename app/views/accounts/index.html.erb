@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Accounts</h1>
+
+<p>
+  <%= link_to 'New Account', new_account_path, class:"btn btn-lg btn-default" %>
+</p>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Number</th>
+      <th scope="col">Balance</th>
       <th scope="col">Limit</th>
       <th scope="col">Agency</th>
     </tr>
@@ -16,6 +19,7 @@
       <tr>
         <td><%= account.id %></td>
         <td><%= account.number %></td>
+        <td><%= account.balance %></td>
         <td><%= account.limit %></td>
         <td><%= account.agency_id %></td>
         <td><%= link_to 'Show', account %></td>
@@ -25,9 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-
-<br>
-
-<%= link_to 'New Account', new_account_path %>
-

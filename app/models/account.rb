@@ -5,4 +5,5 @@ class Account < ApplicationRecord
   validates :number, presence: true, uniqueness: true
   validates :limit, presence: true, numericality: true
   validates :agency_id, presence: true
+  validates :balance, presence: true
 end

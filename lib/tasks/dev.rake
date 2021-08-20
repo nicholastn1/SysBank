@@ -35,11 +35,13 @@ namespace :dev do
   task add_default_account: :environment do
     Account.create!(
       number: '0054213',
+      balance: '1000',
       limit: '3000',
       agency: Agency.first,
     )
     Account.create!(
       number: '0032645',
+      balance: '3000',
       limit: '1000',
       agency: Agency.first,
     )

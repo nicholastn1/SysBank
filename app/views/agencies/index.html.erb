@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Agencies</h1>
+
+<p>
+  <%= link_to 'New Agency', new_agency_path, class:"btn btn-lg btn-default" %>
+</p>
 
 <table class="table">
   <thead class="thead-dark">
@@ -23,7 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Agency', new_agency_path %>

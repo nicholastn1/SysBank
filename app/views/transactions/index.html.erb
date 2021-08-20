@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Transactions</h1>
-<div class="row">
-  <div class="col-md-3 align-self-center"><%= link_to 'Deposit', new_transaction_path(transaction_type: :deposit) %></div>
-  <div class="col-md-3 align-self-center"><%= link_to 'Withdraw', new_transaction_path(transaction_type: :withdraw) %></div>
-  <div class="col-md-3 align-self-center"><%= link_to 'Reversal', new_transaction_path(transaction_type: :reversal) %></div>
-  <div class="col-md-3 align-self-center"><%= link_to 'Transfer', new_transaction_path(transaction_type: :transfer) %></div>
-</div>
+
+<p>
+  <%= link_to 'Deposit',  new_transaction_path(transaction_type: :deposit ), class:"btn btn-lg btn-default" %>
+  <%= link_to 'Withdraw', new_transaction_path(transaction_type: :withdraw), class:"btn btn-lg btn-default" %>
+  <%= link_to 'Reversal', new_transaction_path(transaction_type: :reversal), class:"btn btn-lg btn-default" %>
+  <%= link_to 'Transfer', new_transaction_path(transaction_type: :transfer), class:"btn btn-lg btn-default" %>
+</p>
 
 </table>
 <table class="table">
@@ -36,7 +35,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Transaction', new_transaction_path %>

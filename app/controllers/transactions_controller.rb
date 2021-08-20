@@ -22,15 +22,18 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: "Transaction was successfully created." }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+    begin
+      respond_to do |format|
+        if @transaction.save!
+          format.html { redirect_to @transaction, notice: "Transaction was successfully created." }
+          format.json { render :show, status: :created, location: @transaction }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        end
       end
+    rescue => exception
+      render :new
     end
   end
 
