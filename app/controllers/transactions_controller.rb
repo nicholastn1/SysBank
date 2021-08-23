@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
+
     begin
       respond_to do |format|
         if @transaction.save!
@@ -48,13 +49,13 @@ class TransactionsController < ApplicationController
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /transactions/1 or /transactions/1.json
   def destroy
-    @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: "Transaction was successfully destroyed." }
+      format.html { redirect_to transactions_url, notice: "You can't not remove an transaction!" }
       format.json { head :no_content }
     end
   end
@@ -69,4 +70,5 @@ class TransactionsController < ApplicationController
     def transaction_params
       params.require(:transaction).permit(:date, :amount, :transaction_type, :account_id, :user_id)
     end
+
 end

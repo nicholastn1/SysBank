@@ -24,7 +24,9 @@
   <div class="field">
     <%= form.label :transaction_type %>
     <% form.number_field :transaction_type %>
-    <%= form.select :transaction_type, options_for_select(Transaction::transaction_types.map {|key, value| [key.titleize, Transaction.transaction_types.key(value)]}, transaction.transaction_type)%>
+    <%= transaction.transaction_type.upcase %>
+    <%= form.hidden_field :transaction_type%>
+    <% form.select :transaction_type, options_for_select(Transaction::transaction_types.map {|key, value| [key.titleize, Transaction.transaction_types.key(value)]}, transaction.transaction_type), {:disabled => true}%>
   </div>
 
   <div class="field">
