@@ -26,6 +26,11 @@
     <%= form.text_field :agency_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= current_user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

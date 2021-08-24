@@ -21,7 +21,7 @@ class AccountsController < ApplicationController
 
   # POST /accounts or /accounts.json
   def create
-    @account = Account.new(account_params)
+    @account = Account.new(account_params.merge!(user_id: current_user.id))
 
     respond_to do |format|
       if @account.save

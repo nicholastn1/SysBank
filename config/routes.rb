@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Define a rota padrão
-  root to: "welcome#index"
+  root to: "accounts#index" # "welcome#index"
 
   resources :transactions
   resources :accounts

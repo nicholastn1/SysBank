@@ -21,6 +21,11 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
+    User.create!(
+      email: 'teste@teste.com',
+      password: DEFAULT_PASSWORD,
+      password_confirmation: DEFAULT_PASSWORD
+    )
   end
 
   desc "Adicionar uma agência padrão"
