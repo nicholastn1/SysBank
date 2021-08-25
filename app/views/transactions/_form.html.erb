@@ -31,8 +31,15 @@
 
   <div class="field">
     <%= form.label :account_id %>
-    <%= form.select :account_id, options_for_select(@accounts.map{|account| [account.description_complete, account.id]}, transaction.account_id) %>
+    <%= form.select :account_id, options_for_select(@accounts.map{|account| [account.format_description, account.id]}, transaction.account_id) %>
   </div>
+
+  <% if transaction.transfer? %>
+    <div class="field">
+      <%= form.label :account_destiny_id %>
+      <%= form.select :account_destiny_id, options_for_select(@accounts_destiny.map{|account_destiny| [account_destiny.format_description, account_destiny.id]}, transaction.account_destiny_id) %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :user_id %>

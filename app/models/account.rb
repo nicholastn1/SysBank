@@ -15,9 +15,8 @@ class Account < ApplicationRecord
       end
   end
 
-  def description_complete
+  def format_description
     "CC: #{number.to_s} / AG: #{agency.number.to_s}"
   end
-
 
 end

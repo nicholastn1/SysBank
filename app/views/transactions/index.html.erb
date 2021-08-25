@@ -17,6 +17,7 @@
       <th scope="col">Amount</th>
       <th scope="col">Transaction type</th>
       <th scope="col">Account</th>
+      <th scope="col">Account Destiny</th>
       <th scope="col">User</th>
     </tr>
   </thead>
@@ -29,10 +30,11 @@
         <td><%= transaction.amount %></td>
         <td><%= transaction.transaction_type %></td>
         <td><%= transaction.account_id %></td>
+        <td><%= transaction.account_destiny_id %></td>
         <td><%= transaction.user_id %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-        <td><%= link_to 'Destroy', transaction_path(transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Destroy', transaction_path(transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

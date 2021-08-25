@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.where(account_id: current_user.accounts.ids).or(Transaction.where(account_destiny_id: current_user.accounts.ids))
   end
 
   # GET /transactions/1 or /transactions/1.json
@@ -15,14 +15,15 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new(transaction_type: params[:transaction_type])
   end
-
+  
   # GET /transactions/1/edit
   def edit
   end
-
+  
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params.merge!(user_id: current_user.id))
+    byebug
     begin
       respond_to do |format|
         if @transaction.save!
@@ -55,7 +56,7 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1 or /transactions/1.json
   def destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: "You can't not remove an transaction!" }
+      format.html { redirect_to transactions_url, notice: "You can't remove an transaction!" }
       format.json { head :no_content }
     end
   end
@@ -64,6 +65,7 @@ class TransactionsController < ApplicationController
 
     def initialize_dependences
       @accounts = current_user.accounts
+      @accounts_destiny = Account.all
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -73,7 +75,7 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:date, :amount, :transaction_type, :account_id, :user_id)
+      params.require(:transaction).permit(:date, :amount, :transaction_type, :account_id, :user_id, :account_destiny_id)
     end
 
 end

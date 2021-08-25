@@ -15,5 +15,6 @@ class Transaction < ApplicationRecord
   validates :transaction_type, presence: true
   validates :account_id, presence: true
   validates :user_id, presence: true
+  validates :account_destiny_id, presence: true, if: :transfer?
 
 end

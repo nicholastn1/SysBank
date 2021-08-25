@@ -43,12 +43,14 @@ namespace :dev do
       balance: '1000',
       limit: '3000',
       agency: Agency.first,
+      user: User.first
     )
     Account.create!(
       number: '0032645',
       balance: '3000',
       limit: '1000',
       agency: Agency.first,
+      user: User.last
     )
   end
 
