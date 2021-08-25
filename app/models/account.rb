@@ -1,7 +1,7 @@
 class Account < ApplicationRecord
   belongs_to :agency
   belongs_to :user
-  
+
   validates :number, presence: true, uniqueness: true
   validates :limit, presence: true, numericality: true
   validates :agency_id, presence: true
@@ -14,5 +14,10 @@ class Account < ApplicationRecord
         self.balance = 0.00
       end
   end
+
+  def description_complete
+    "CC: #{number.to_s} / AG: #{agency.number.to_s}"
+  end
+
 
 end

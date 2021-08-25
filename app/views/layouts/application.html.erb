@@ -19,8 +19,13 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
+              <li>
                 <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a><%= "Balance: #{current_user.total_balance}" %></a>
               </li>
             </ul>
           </div>

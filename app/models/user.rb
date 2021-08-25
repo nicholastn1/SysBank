@@ -11,6 +11,11 @@ class User < ApplicationRecord
 
   def total_balance
     deposits = transactions.deposit.sum(:amount).to_f
+    withdraws = transactions.withdraw.sum(:amount).to_f
+    reversals = transactions.reversal.sum(:amount).to_f
+    transfer = transactions.reversal.sum(:amount).to_f
+
+    (deposits - withdraws) + reversals
   end
 
 end

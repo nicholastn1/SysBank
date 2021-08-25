@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[ show edit update destroy ]
+  before_action :initialize_dependences, only: [:new, :edit, :create, :update]
 
   # GET /transactions or /transactions.json
   def index
@@ -21,8 +22,7 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
-
+    @transaction = Transaction.new(transaction_params.merge!(user_id: current_user.id))
     begin
       respond_to do |format|
         if @transaction.save!
@@ -41,7 +41,7 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
     respond_to do |format|
-      if @transaction.update(transaction_params)
+      if @transaction.update(transaction_params.merge!(user_id: current_user.id))
         format.html { redirect_to @transaction, notice: "Transaction was successfully updated." }
         format.json { render :show, status: :ok, location: @transaction }
       else
@@ -61,6 +61,11 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+    def initialize_dependences
+      @accounts = current_user.accounts
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
       @transaction = Transaction.find(params[:id])

@@ -1,6 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :user
   belongs_to :account
+  belongs_to :account_destiny, class_name: "Account", foreign_key: "account_destiny_id", optional: true
 
   enum transaction_type:{
     deposit: 0,

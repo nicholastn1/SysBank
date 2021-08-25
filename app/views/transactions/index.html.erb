@@ -13,6 +13,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Date</th>
+      <th scope="col">User</th>
       <th scope="col">Amount</th>
       <th scope="col">Transaction type</th>
       <th scope="col">Account</th>
@@ -24,6 +25,7 @@
       <tr>
         <td><%= transaction.id %></td>
         <td><%= transaction.date %></td>
+        <td><%= transaction.user.email %></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.transaction_type %></td>
         <td><%= transaction.account_id %></td>
