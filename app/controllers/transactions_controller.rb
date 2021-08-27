@@ -15,15 +15,14 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new(transaction_type: params[:transaction_type])
   end
-  
+
   # GET /transactions/1/edit
   def edit
   end
-  
+
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params.merge!(user_id: current_user.id))
-    byebug
     begin
       respond_to do |format|
         if @transaction.save!

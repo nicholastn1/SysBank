@@ -12,10 +12,7 @@ module BankAccounts
 
     def execute
       validate_existence_of_account
-
-      if @transaction_type == "withdraw" and @account.present?
-        validate_withdrawal
-      end
+      validate_withdrawal
 
       @errors
     end

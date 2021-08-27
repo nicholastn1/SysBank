@@ -31,8 +31,12 @@ namespace :dev do
   desc "Adicionar uma agência padrão"
   task add_default_agency: :environment do
     Agency.create!(
-      number: '4225',
-      address: 'Rua A',
+      number: '1223',
+      address: 'Rua A, 123',
+    )
+    Agency.create!(
+      number: '2334',
+      address: 'Rua B, 234',
     )
   end
 
@@ -40,16 +44,14 @@ namespace :dev do
   task add_default_account: :environment do
     Account.create!(
       number: '0054213',
-      balance: '1000',
       limit: '3000',
       agency: Agency.first,
       user: User.first
     )
     Account.create!(
       number: '0032645',
-      balance: '3000',
       limit: '1000',
-      agency: Agency.first,
+      agency: Agency.last,
       user: User.last
     )
   end

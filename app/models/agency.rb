@@ -3,4 +3,9 @@ class Agency < ApplicationRecord
 
   validates :number, presence: true, uniqueness: true
   validates :address, presence: true
+
+  def agency_format
+    "AG: #{self.number.to_s}"
+  end
+
 end

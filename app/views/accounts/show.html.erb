@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @account.number %>
@@ -17,7 +15,7 @@
 
 <p>
   <strong>Agency:</strong>
-  <%= @account.agency_id %>
+  <%= @account.agency.address %>
 </p>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |

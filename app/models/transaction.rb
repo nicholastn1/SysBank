@@ -16,5 +16,10 @@ class Transaction < ApplicationRecord
   validates :account_id, presence: true
   validates :user_id, presence: true
   validates :account_destiny_id, presence: true, if: :transfer?
+  validate :validate_balance, if: :withdraw, :transfer?
+
+  def validate_balance
+      errors.add(:total_balance, "Not enough money") if (self.total_balance - self.amount) < 0.00
+  end
 
 end

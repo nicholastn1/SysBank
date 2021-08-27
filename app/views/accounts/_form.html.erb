@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.number_field :number %>
   </div>
 
   <div class="field">
     <%= form.label :limit %>
-    <%= form.text_field :limit %>
+    <%= form.number_field :limit %>
   </div>
 
   <div class="field">
     <%= form.label :agency_id %>
-    <%= form.text_field :agency_id %>
+    <%= form.select :agency_id, options_for_select(Agency.all.map{|agency| [agency.agency_format, agency.id]}, account.agency_id)%>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= current_user.id %>
+    <%= current_user.email %>
   </div>
 
   <div class="actions">
