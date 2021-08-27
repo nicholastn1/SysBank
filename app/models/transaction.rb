@@ -3,6 +3,8 @@ class Transaction < ApplicationRecord
   belongs_to :account
   belongs_to :account_destiny, class_name: "Account", foreign_key: "account_destiny_id", optional: true
 
+  validate :equals_accounts
+
   enum transaction_type:{
     deposit: 0,
     withdraw: 1,
@@ -21,5 +23,9 @@ class Transaction < ApplicationRecord
   # def validate_balance
   #     errors.add(:total_balance, "Not enough money") if (self.total_balance - self.amount) < 0.00
   # end
+
+  def equals_accounts
+    errors.add(:account, "can not transfer to same account") if self.account_id == self.account_destiny_id
+  end
 
 end

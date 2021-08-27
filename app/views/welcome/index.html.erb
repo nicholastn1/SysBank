@@ -1,2 +1,8 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to SysBank!</h1>
+<p></p>
+<br>
+<div class="row">
+  <div class="col-md-4"><%= "Usuários cadastrados no sistema: #{User.count}" %></div>
+  <div class="col-md-4"><%= "Agências cadastradas no sistema: #{Agency.count}" %></div>
+  <div class="col-md-4"><%= "Contas cadastradas no sistema: #{Account.count}" %></div>
+</div>

@@ -15,7 +15,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">SysBank</a>
+            <%= link_to 'SysBank', root_path, class:"navbar-brand" %>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -25,7 +25,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-left">
               <li>
-                <a><%= "Balance: #{current_user.total_balance}" %></a>
+                <a><%= "Balance: $ #{current_user.total_balance}" %></a>
               </li>
               <li>
                 <a><%= "User: #{current_user.email}" %></a>
@@ -57,7 +57,7 @@
     <% if notice%>
       <script>
         $.bootstrapGrowl('<%= notice %>', {
-          type: 'success', // (null, 'info', 'error', 'success')
+          type: (null, 'info', 'error', 'success'), //
           align: 'right', // ('left', 'right', or 'center')
           allow_dismiss: true,
           stackup_spacing: 10 // spacing between consecutively stacked growls.
