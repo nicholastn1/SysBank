@@ -10,6 +10,7 @@
       <th scope="col">#</th>
       <th scope="col">User</th>
       <th scope="col">Number</th>
+      <th scope="col">Balance</th>
       <th scope="col">Limit</th>
       <th scope="col">Agency</th>
     </tr>
@@ -20,7 +21,7 @@
         <td><%= account.id %></td>
         <td><%= account.user.email %></td>
         <td><%= account.number %></td>
-        <%#= account.balance %>
+        <td><%= account.account_balance %></td>
         <td><%= account.limit %></td>
         <td><%= account.agency.address %></td>
         <td><%= link_to 'Show', account %></td>
