@@ -57,7 +57,7 @@ class AccountsController < ApplicationController
       end
     rescue => exception
       respond_to do |format|
-        format.html { redirect_to accounts_url, notice: "Account can not destroyed: #{exception.message}" }
+        format.html { redirect_to accounts_url, notice: "Account can't destroyed: #{exception.message}" }
         format.json { head :no_content }
       end
     end
