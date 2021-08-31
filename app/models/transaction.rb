@@ -3,8 +3,6 @@ class Transaction < ApplicationRecord
   belongs_to :account
   belongs_to :account_destiny, class_name: "Account", foreign_key: "account_destiny_id", optional: true
 
-  validate :equals_accounts
-
   enum transaction_type:{
     deposit:  0,
     withdraw: 1,
@@ -19,6 +17,7 @@ class Transaction < ApplicationRecord
   validates :user_id, presence: true
   validates :account_destiny_id, presence: true, if: :transfer?
 
+  validate :equals_accounts
   validate :not_enough_balance, if: :withdraw?
   validate :not_enough_limit
   validate :account_balance_validation

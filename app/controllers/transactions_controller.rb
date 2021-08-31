@@ -4,7 +4,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.where(account_id: current_user.accounts.ids).or(Transaction.where(account_destiny_id: current_user.accounts.ids))
+    @transactions = Transaction.where(account_id: current_user.accounts.ids).or(Transaction.where(account_destiny_id: current_user.accounts.ids)).page(params[:page]).per(5)
+
   end
 
   # GET /transactions/1 or /transactions/1.json
