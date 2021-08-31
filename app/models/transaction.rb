@@ -27,7 +27,9 @@ class Transaction < ApplicationRecord
   end
 
   def account_balance_validation
-    errors.add(:transaction, "insufficient account balance: $ #{account.account_balance}") if self.amount > account.account_balance
+    unless deposit?
+      errors.add(:transaction, "insufficient account balance: $ #{account.account_balance}") if self.amount > account.account_balance
+    end
   end
 
   def not_enough_limit

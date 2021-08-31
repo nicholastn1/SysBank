@@ -1,33 +1,35 @@
-<h1>Accounts</h1>
+<div>
+  <h1>Accounts</h1>
 
-<p>
-  <%= link_to 'New Account', new_account_path, class:"btn btn-lg btn-default" %>
-</p>
+  <p>
+    <%= link_to 'New Account', new_account_path, class:"btn btn-lg btn-default" %>
+  </p>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">User</th>
-      <th scope="col">Number</th>
-      <th scope="col">Balance</th>
-      <th scope="col">Limit</th>
-      <th scope="col">Agency</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @accounts.each do |account| %>
+  <table class="table">
+    <thead class="thead-dark">
       <tr>
-        <td><%= account.id %></td>
-        <td><%= account.user.email %></td>
-        <td><%= account.number %></td>
-        <td><%= account.account_balance %></td>
-        <td><%= account.limit %></td>
-        <td><%= account.agency.address %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Number</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Limit</th>
+        <th scope="col">Agency</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+          <td><%= account.id %></td>
+          <td><%= account.user.email %></td>
+          <td><%= account.number %></td>
+          <td><%= account.account_balance %></td>
+          <td><%= account.limit %></td>
+          <td><%= account.agency.address %></td>
+          <td><%= link_to 'Show', account %></td>
+          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure? This account can have transactions.' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
