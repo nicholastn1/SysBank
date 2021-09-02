@@ -47,6 +47,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   # FFaker
   gem 'ffaker'
+  # Factory Bot Rails
+  gem 'factory_bot_rails'
 end
 
 group :development do
