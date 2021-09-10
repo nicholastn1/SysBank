@@ -11,7 +11,7 @@ class Transaction < ApplicationRecord
   }
 
   validates :date, presence: true
-  validates :amount, presence: true, numericality: true
+  validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :transaction_type, presence: true
   validates :account_id, presence: true
   validates :user_id, presence: true
