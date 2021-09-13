@@ -23,6 +23,7 @@ class Account < ApplicationRecord
     reversals = transactions.reversal.sum(:amount).to_f
     origin_transfers = transactions.transfer.sum(:amount).to_f
     destiny_transfers = Transaction.transfer.where(account_destiny_id: self.id).sum(:amount).to_f
+    
 
     (deposits + destiny_transfers) - reversals - withdraws - origin_transfers
   end

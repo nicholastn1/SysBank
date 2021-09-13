@@ -9,20 +9,22 @@ RSpec.describe Transaction, type: :model do
       expect(transaction).to be_valid
     end
 
-    it "will not be created" do
+    it "will not be created with amount less than 0" do
       user = FactoryBot.create(:user)
-      account = FactoryBot.create(:account, user_id: user.id, balance: 5000)
-      transaction = FactoryBot.build(:transaction, user_id: user.id, account_id: account.id, amount: -500, transaction_type: 'deposit')
+      transaction = build(:transaction, amount: -500, transaction_type: 'deposit', user: user)
       expect(transaction).not_to be_valid
     end
   end
 
-  # it "will be created an withdraw" do
-  #   user = FactoryBot.create(:user)
-  #   account = FactoryBot.create(:account, user_id: user.id, balance: 4000)
-  #   move = FactoryBot.create(:transaction, user_id: user.id, account_id: account.id, amount: 500, transaction_type: 'deposit')
-  #   transaction = FactoryBot.build(:transaction, account_id: account.id, amount: 200, transaction_type: 'withdraw')
-  #   expect(move).to be_valid
-  # end
+  context "withdraw" do
+    it "will be created an withdraw" do
+      user = FactoryBot.create(:user)
+      account = FactoryBot.build(:account)
+      # transaction_deposit = FactoryBot.create(:transaction, user_id: user.id, amount: 200, transaction_type: 'deposit')
+      transaction = FactoryBot.build(:transaction, user_id: user.id, amount: 200, transaction_type: 'withdraw')
+      byebug
+      expect(transaction).to be_valid
+    end
+  end
 
 end
